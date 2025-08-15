@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit User</title>
+</head>
+<body>
+<h2>Edit User</h2>
+<form action="/update-user/{{ user[0] }}" method="POST">
+  <label>Name:</label><br>
+  <input type="text" name="name" value="{{ user[1] }}"><br><br>
+
+  <label>Email:</label><br>
+  <input type="email" name="email" value="{{ user[2] }}"><br><br>
+
+  <input type="submit" value="Update User">
+</form>
+</body>
+</html>

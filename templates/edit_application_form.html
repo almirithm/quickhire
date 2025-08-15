@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Application</title>
+</head>
+<body>
+<h2>Edit Internship Application</h2>
+
+<form action="/update-application/{{ app[0] }}" method="POST">
+    <label>Company:</label><br>
+    <input type="text" name="company" value="{{ app[2] }}"><br><br>
+
+    <label>Position:</label><br>
+    <input type="text" name="position" value="{{ app[3] }}"><br><br>
+
+    <label>Status:</label><br>
+    <select name="status">
+        <option value="applied" {% if app[4] == 'applied' %}selected{% endif %}>Applied</option>
+        <option value="interview" {% if app[4] == 'interview' %}selected{% endif %}>Interview</option>
+        <option value="offer" {% if app[4] == 'offer' %}selected{% endif %}>Offer</option>
+        <option value="rejected" {% if app[4] == 'rejected' %}selected{% endif %}>Rejected</option>
+    </select><br><br>
+
+    <label>Deadline:</label><br>
+    <input type="date" name="deadline" value="{{ app[5] }}"><br><br>
+
+    <label>Notes:</label><br>
+    <textarea name="notes">{{ app[6] }}</textarea><br><br>
+
+    <input type="submit" value="Update Application">
+</form>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>All Applications</title>
+</head>
+<body>
+<h2>All Applications</h2>
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Company</th>
+    <th>Position</th>
+    <th>Status</th>
+    <th>Deadline</th>
+    <th>Notes</th>
+    <th>Delete</th>
+    <th>Edit</th>
+  </tr>
+  {% for app in applications %}
+  <tr>
+    <td>{{ app[0] }}</td>
+    <td>{{ app[2] }}</td>
+    <td>{{ app[3] }}</td>
+    <td>{{ app[4] }}</td>
+    <td>{{ app[5] }}</td>
+    <td>{{ app[6] }}</td>
+    <td>
+      <form action="/delete-application/{{ app[0] }}" method="POST">
+        <button type="submit">Delete</button>
+      </form>
+    </td>
+    <td>
+      <form action="/edit-application/{{ app[0] }}" method="GET">
+        <button type="submit">Edit</button>
+      </form>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+
+<br>
+<a href="/">Back to Home</a>
+</body>
+</html>
